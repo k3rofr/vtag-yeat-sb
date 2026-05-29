@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YEAT SB</title>
+</head>
+<body>
+
+    <!-- 1. The Single Audio Player (PUT FIRST) -->
+    <audio id="audioPlayer" controls>
+      <source id="audioSource" src="Money Twerk.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 2. The Clickable Song List (PUT SECOND) -->
+    <h3>Tracklist</h3>
+    <ul style="list-style: none; padding: 0;">
+      <li><button onclick="changeTrack('Money Twerk.mp3')">Money Twerk</button></li>
+      <li><button onclick="changeTrack('How it go.mp3')">How it go</button></li>
+      <li><button onclick="changeTrack('System.mp3')">System</button></li>
+      <li><button onclick="changeTrack('Get busy.mp3')">Get busy</button></li>
+      <li><button onclick="changeTrack('Luh geek.mp3')">Luh geek</button></li>
+      <li><button onclick="changeTrack('On tha line.mp3')">On tha line</button></li>
+      <li><button onclick="changeTrack('FATE.mp3')">FATE</button></li>
+      <li><button onclick="changeTrack('Rokstar.mp3')">Rokstar</button></li>
+      <li><button onclick="changeTrack('Kant Change.mp3')">Kant Change</button></li>
+      <li><button onclick="changeTrack('Up off X.mp3')">Up off X</button></li>
+      <li><button onclick="changeTrack('Tonka 2.mp3')">Tonka 2</button></li>
+      <li><button onclick="changeTrack('Out the way.mp3')">Out the way</button></li>
+    </ul>
+
+    <!-- 3. The Code That Swaps The Songs (PUT LAST) -->
+    <script>
+    function changeTrack(fileName) {
+      var player = document.getElementById('audioPlayer');
+      var source = document.getElementById('audioSource');
+      
+      source.src = fileName;
+      player.load(); 
+      player.play(); 
+    }
+    </script>
+
+</body>
+</html>
