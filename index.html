@@ -3,170 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VTAG-YEAT-SB</title>
+    <title>YEAT SB | VTAG</title>
     <style>
-        /* Sleek Dark Mode Styling */
+        /* Jungle & Monke Theme Styling */
         body {
-            background-color: #121212;
-            color: # #:FFFDD6;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            margin: 0;
-        }
-
-        .player-container {
-            background-color: #1e1e1e;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            width: 100%;
-            max-width: 400px;
+            background-color: #1a2f1c; /* Deep jungle green */
+            color: #f4ebd0; /* Soft banana-cream text */
+            font-family: 'Impact', 'Arial Black', sans-serif;
             text-align: center;
-        }
-
-        h2 {
-            margin-top: 0;
-            color: #1db954; /* Music green accent */
-        }
-
-        #nowPlaying {
-            font-size: 14px;
-            color: #b3b3b3;
-            margin-bottom: 20px;
-        }
-
-        audio {
-            width: 100%;
-            margin-bottom: 25px;
-        }
-
-        .tracklist {
-            list-style: none;
-            padding: 0;
+            padding: 20px;
             margin: 0;
-            text-align: left;
         }
 
-        .tracklist li {
-            margin-bottom: 8px;
+        h1 {
+            color: #8b5a2b; /* Wooden brown */
+            text-shadow: 2px 2px 0px #000;
+            font-size: 3rem;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
         }
 
-        .track-btn {
-            width: 100%;
-            background-color: #282828;
-            color: #ffffff;
-            border: none;
-            padding: 12px 15px;
-            text-align: left;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 15px;
-            transition: background-color 0.2s, color 0.2s;
-        }
-
-        .track-btn:hover {
-            background-color: #3e3e3e;
-            color: #1db954;
-        }
-
-        .track-btn.active {
-            background-color: #1db954;
-            color: #000000;
+        .subtitle {
+            font-family: Arial, sans-serif;
             font-weight: bold;
+            color: #a3c9a8;
+            margin-bottom: 40px;
+        }
+
+        /* Soundboard Grid Container */
+        .soundboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Monke Button Styling */
+        .sound-btn {
+            background-color: #4a3525; /* Light bark brown */
+            border: 4px solid #8b5a2b; /* Wooden border */
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 25px 15px;
+            cursor: pointer;
+            box-shadow: 0 8px 0px #271910;
+            transition: all 0.1s ease;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        /* Click and Active Animation */
+        .sound-btn:active {
+            box-shadow: 0 2px 0px #271910;
+            transform: translateY(6px);
+            background-color: #e5a93b; /* Pops bright yellow when pressed */
+            border-color: #b87d14;
+        }
+
+        .sound-btn:hover {
+            background-color: #5c422f;
         }
     </style>
 </head>
 <body>
 
-    <div class="player-container">
-        <h2>YEAT</h2>
-        <div id="nowPlaying">Playing: Money Twerk</div>
+    <h1>YEAT-VTAG</h1>
+    <div class="subtitle">Official Fan Game Audio Rig</div>
 
-        <!-- 1. The Audio Player pointing directly to the first online track -->
-        <audio id="audioPlayer" controls onended="playNext()">
-            <source id="audioSource" src="https://archive.org" type="audio/mpeg">
-        </audio>
-
-        <!-- 2. The Complete 12-Song Button List mapped to their respective web URLs -->
-        <ul class="tracklist">
-            <li><button class="track-btn active" onclick="changeTrack('https://archive.org', 'Money Twerk', this)">Money Twerk</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'How it go', this)">How it go</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'System', this)">System</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'Get busy', this)">Get busy</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'Luh geek', this)">Luh geek</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'On tha line', this)">On tha line</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'FATE', this)">FATE</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'Rokstar', this)">Rokstar</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'Kant Change', this)">Kant Change</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'Up off X', this)">Up off X</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'Tonka 2', this)">Tonka 2</button></li>
-            <li><button class="track-btn" onclick="changeTrack('https://archive.org', 'Out the way', this)">Out the way</button></li>
-        </ul>
+    <!-- The Soundboard Layout -->
+    <div class="soundboard-grid">
+        <!-- Add your audio triggers here -->
+        <button class="sound-btn" onclick="playSound('Money Twerk')">
+        <button class="sound-btn" onclick="playSound('On tha line')">
+        <button class="sound-btn" onclick="playSound('How it go')">
+        <button class="sound-btn" onclick="playSound('Luh geek')">
+        <button class="sound-btn" onclick="playSound('System')">
+        <button class="sound-btn" onclick="playSound('FATE')">
     </div>
+    <audio id="Monëy Twerk [Official Music Vidëo]" src="https://youtube.com"></audio>
+    <audio id="On tha line [Official Music Video]" src="https://youtube.com"></audio>
+    <audio id="How it go [Official Audio]" src="https://youtube.com"></audio>
+    <audio id="Luh gëek (Official Audio)" src="https://youtube.com"></audio>
+    <audio id="Systëm [Official Audio]" src="https://youtube.com.com"></audio>
+    <audio id="FATË (BONUS) [OFFICIAL AUDIO]"src="https://youtube.com></audio>
 
-    <!-- 3. The Updated Playlist Logic Script -->
     <script>
-        // Array keeping track of the live URL paths
-        var playlistUrls = [
-            'https://archive.org', // Map: Money Twerk
-            'https://archive.org', // Map: How it go
-            'https://archive.org', // Map: System
-            'https://archive.org', // Map: Get busy
-            'https://archive.org', // Map: Luh geek
-            'https://archive.org', // Map: On tha line
-            'https://archive.org', // Map: FATE
-            'https://archive.org', // Map: Rokstar
-            'https://archive.org', // Map: Kant Change
-            'https://archive.org', // Map: Up off X
-            'https://archive.org', // Map: Tonka 2
-            'https://archive.org', // Map: Out the way
-        ];
-
-        // Array corresponding directly to the track display names
-        var songNames = [
-            'Money Twerk', 'How it go', 'System', 'Get busy', 
-            'Luh geek', 'On tha line', 'FATE', 'Rokstar', 
-            'Kant Change', 'Up off X', 'Tonka 2', 'Out the way'
-        ];
-        
-        var currentTrackIndex = 0;
-
-        function changeTrack(url, displayName, buttonElement) {
-            var player = document.getElementById('audioPlayer');
-            var source = document.getElementById('audioSource');
-            var nowPlayingText = document.getElementById('nowPlaying');
-            
-            // Set the tracking index based on the chosen URL string
-            currentTrackIndex = playlistUrls.indexOf(url);
-            
-            // Swap the web link file and instruct player to load
-            source.src = url;
-            player.load(); 
-            player.play(); 
-
-            // Update display banner context text 
-            nowPlayingText.innerText = "Playing: " + displayName;
-
-            // Manage button selection UI styles
-            var buttons = document.querySelectorAll('.track-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            if (buttonElement) {
-                buttonElement.classList.add('active');
-            } else {
-                buttons[currentTrackIndex].classList.add('active');
+        // Simple Audio Engine
+        function playSound(audioId) {
+            const sound = document.getElementById(audioId);
+            if (sound) {
+                sound.currentTime = 0; // Rewind sound to start so you can spam click it
+                sound.play();
             }
-        }
-
-        function playNext() {
-            // Increments index by 1; wraps around to 0 at the final song array bound
-            currentTrackIndex = (currentTrackIndex + 1) % playlistUrls.length;
-            var nextUrl = playlistUrls[currentTrackIndex];
-            var nextName = songNames[currentTrackIndex];
-            changeTrack(nextUrl, nextName, null);
         }
     </script>
 
